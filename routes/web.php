@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::resource('currencies', 'CurrencyController') ;
+
+Route::get('/auth/github', 'GithubAuthController@redirectToProvider');
+Route::get('/auth/github/callback', 'GithubAuthController@handleProviderCallback');
+
+//Route::get('/home', 'HomeController@index')->name('home');
